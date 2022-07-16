@@ -15,11 +15,15 @@ class ViewController: UIViewController {
     
     var cnt = 100
     var addDay: Int = 0
+    let defaultsdata = UserDefaults.standard
+    
     override func viewDidLoad() {
         
-        
-        
-        for label in dDayLabel {
+        super.viewDidLoad()
+        datePicker.preferredDatePickerStyle = .inline
+        dateLabel[0].text = defaultsdata.string(forKey: "date")
+
+       for label in dDayLabel {
             label.font = UIFont.boldSystemFont(ofSize: 20)
             label.textAlignment = .left
             label.text = "D+\(cnt)"
@@ -35,8 +39,7 @@ class ViewController: UIViewController {
         for image in imageAttribute {
             image.layer.cornerRadius = 10
         }
-        super.viewDidLoad()
-        datePicker.preferredDatePickerStyle = .inline
+        
         // Do any additional setup after loading the view.
         // DateFormatter: 알아보기 쉬운 날짜 + 시간대 (yyyy MM dd hh:mm:ss)
 //        let format = DateFormatter()
@@ -57,30 +60,30 @@ class ViewController: UIViewController {
         // 첫번째 - label의 text에는 String만 들어갈 수 있다. 그래서 날짜/시간 데이터를 String으로 만들어야 한다.
         format.dateStyle = .short
         format.dateFormat = "yyyy년 M월 d일"
-        let date = format.string(from: datePicker.date)
         
-        if let date100 = Calendar.current.date(byAdding: .day, value: 100, to: datePicker.date) {
+        
+        if let date100 = Calendar.current.date(byAdding: .day, value: 99, to: datePicker.date) {
             let datestr100 = format.string(from: date100)
             dateLabel[0].text = datestr100
-            print(datestr100)
+            
         }
         
-        if let date200 = Calendar.current.date(byAdding: .day, value: 200, to: datePicker.date) {
+        if let date200 = Calendar.current.date(byAdding: .day, value: 199, to: datePicker.date) {
             let datestr200 = format.string(from: date200)
             dateLabel[1].text = datestr200
-            print(datestr200)
+            
         }
         
-        if let date300 = Calendar.current.date(byAdding: .day, value: 300, to: datePicker.date) {
+        if let date300 = Calendar.current.date(byAdding: .day, value: 299, to: datePicker.date) {
             let datestr300 = format.string(from: date300)
             dateLabel[2].text = datestr300
-            print(datestr300)
+            
         }
         
-        if let date400 = Calendar.current.date(byAdding: .day, value: 400, to: datePicker.date) {
+        if let date400 = Calendar.current.date(byAdding: .day, value: 399, to: datePicker.date) {
             let datestr400 = format.string(from: date400)
             dateLabel[3].text = datestr400
-            print(datestr400)
+            
         }
 
         
@@ -93,6 +96,13 @@ class ViewController: UIViewController {
         // 400일 뒤는 dateLabel[3]
         
         
+    }
+    @IBAction func saveButtonClicked(_ sender: UIButton) {
+        // 버튼 눌렀을 때 현재 설정한 데이터 저장.
+        // UserDefaults.standard.set(데이터,키(key))
+        // 여러개의 데이터를 저장해야할 때를 위해 key값이 존재한다. 하고싶은 문자열로 ~
+        
+        defaultsdata.set(dateLabel[0].text, forKey: "date")
     }
     
     
