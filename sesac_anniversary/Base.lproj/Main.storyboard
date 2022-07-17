@@ -185,6 +185,14 @@
                                     <action selector="saveButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KAH-2T-aF1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-ke-cKY">
+                                <rect key="frame" x="20" y="394" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76021719099999996" green="0.22036437580000001" blue="0.69902241970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -210,6 +218,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="4Hv-2n-Sg6" id="ubr-OV-KZ4"/>
+                        <outlet property="defaultsdateLabel" destination="4SQ-ke-cKY" id="NUO-Nk-X9X"/>
                         <outletCollection property="dDayLabel" destination="9bL-A9-vra" collectionClass="NSMutableArray" id="Mfs-L8-pu3"/>
                         <outletCollection property="dateLabel" destination="yBU-3u-Id9" collectionClass="NSMutableArray" id="7qy-zv-bGR"/>
                         <outletCollection property="dDayLabel" destination="S35-SQ-YmU" collectionClass="NSMutableArray" id="EkW-8U-pgV"/>
@@ -226,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-449" y="-90"/>
+            <point key="canvasLocation" x="-449.27536231884062" y="-90.401785714285708"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1EP-pa-eeG">
@@ -255,7 +264,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-JB-Kqk">
-                                                <rect key="frame" x="8" y="14" width="32" height="21"/>
+                                                <rect key="frame" x="8" y="14" width="41.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="fkO-Kz-GnC"/>
                                                 </constraints>

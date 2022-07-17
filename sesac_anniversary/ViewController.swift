@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var dDayLabel: [UILabel]!
     @IBOutlet var dateLabel: [UILabel]!
     @IBOutlet var imageAttribute: [UIImageView]!
+    @IBOutlet weak var defaultsdateLabel: UILabel!
     
     var cnt = 100
     var addDay: Int = 0
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         datePicker.preferredDatePickerStyle = .inline
-        dateLabel[0].text = defaultsdata.string(forKey: "date")
+//        dateLabel[0].text = defaultsdata.string(forKey: "date")
+        defaultsdateLabel.text = defaultsdata.string(forKey: "defaultdata")
 
        for label in dDayLabel {
             label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -60,7 +62,8 @@ class ViewController: UIViewController {
         // 첫번째 - label의 text에는 String만 들어갈 수 있다. 그래서 날짜/시간 데이터를 String으로 만들어야 한다.
         format.dateStyle = .short
         format.dateFormat = "yyyy년 M월 d일"
-        
+        let date = format.string(from: datePicker.date)
+        defaultsdateLabel.text = date
         
         if let date100 = Calendar.current.date(byAdding: .day, value: 99, to: datePicker.date) {
             let datestr100 = format.string(from: date100)
@@ -102,7 +105,8 @@ class ViewController: UIViewController {
         // UserDefaults.standard.set(데이터,키(key))
         // 여러개의 데이터를 저장해야할 때를 위해 key값이 존재한다. 하고싶은 문자열로 ~
         
-        defaultsdata.set(dateLabel[0].text, forKey: "date")
+//        defaultsdata.set(dateLabel[0].text, forKey: "date")
+        defaultsdata.set(defaultsdateLabel.text, forKey: "defaultdata")
     }
     
     
